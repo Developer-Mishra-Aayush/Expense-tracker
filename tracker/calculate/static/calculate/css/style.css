@@ -1,0 +1,221 @@
+:root {
+  --primary: #4f46e5;
+  --secondary: #64748b;
+  --background: #f1f5f9;
+  --white: #ffffff;
+  --plus: #16a34a;
+  --minus: #dc2626;
+  --shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+body {
+  background: var(--background);
+  font-family: "Noto Sans", sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary);
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.dashboard {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card Style */
+.card {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+}
+
+.balance-card {
+  text-align: center;
+}
+
+.balance-card .balance {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* Income & Expense */
+.inc-exp-card {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  gap: 20px;
+}
+
+.inc-exp-card .box {
+  flex: 1;
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.money.plus {
+  color: var(--plus);
+  font-weight: bold;
+}
+
+.money.minus {
+  color: var(--minus);
+  font-weight: bold;
+}
+
+/* Transaction List */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  background: #f9fafb;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.list li.plus {
+  border-left: 5px solid var(--plus);
+}
+
+.list li.minus {
+  border-left: 5px solid var(--minus);
+}
+
+.delete-btn {
+  color: var(--minus);
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+/* Buttons */
+.btn {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  text-decoration: none;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #4338ca;
+}
+
+.btn.danger {
+  background: var(--minus);
+  color: white;
+}
+
+.btn.danger:hover {
+  background: #b91c1c;
+}
+
+/* Form */
+.form-control {
+  margin-bottom: 15px;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+/* Add Transaction Card Specific */
+.add-transaction-card {
+  padding: 25px 20px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.add-transaction-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.add-transaction-card .card-title {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+/* Form Controls */
+.add-transaction-card .form-control {
+  margin-bottom: 15px;
+}
+
+.add-transaction-card input[type="text"],
+.add-transaction-card input[type="number"] {
+  width: 87%;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.add-transaction-card input[type="text"]:focus,
+.add-transaction-card input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
+}
+
+/* Form Buttons Layout */
+.add-transaction-card .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.add-transaction-card .btn {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.add-transaction-card .btn.primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.add-transaction-card .btn.danger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}

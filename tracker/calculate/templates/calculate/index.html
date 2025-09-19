@@ -1,0 +1,66 @@
+{% extends "calculate/base.html" %}
+{% block start %}
+
+<h1 class="title">💰 Expense Tracker</h1>
+
+<div class="dashboard">
+
+  <!-- Balance Card -->
+  <div class="card balance-card">
+    <h2>Your Balance</h2>
+    <p id="balance" class="balance">₹{{ balance }}</p>
+  </div>
+
+  <!-- Income / Expense Card -->
+  <div class="card inc-exp-card">
+    <div class="box">
+      <h4>Income</h4>
+      <p id="money-plus" class="money plus">+₹{{ income }}</p>
+    </div>
+    <div class="box">
+      <h4>Expenses</h4>
+      <p id="money-minus" class="money minus">₹{{ expense }}</p>
+    </div>
+  </div>
+
+  <!-- History Card -->
+  <div class="card">
+    <h3>History</h3>
+    <ul id="list" class="list">
+      {% for transaction in transactions %}
+        <li class="{% if transaction.isNegative %} minus {% else %} plus {% endif %}">
+          <span>{{ transaction.description }}</span>
+          <span>{{ transaction.amount }}</span>
+          <a class="delete-btn" href="{% url 'calculate:delete_transactions' transaction.uuid %}">
+            <i class="fa fa-times"></i>
+          </a>
+        </li>
+      {% empty %}
+        <li class="empty">No transactions yet.</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Add Transaction Card -->
+  <!-- Add Transaction Card -->
+<div class="card add-transaction-card">
+  <h3 class="card-title">Add New Transaction</h3>
+  <form id="form" method="post" action="{% url 'calculate:index' %}">
+    {% csrf_token %}
+    <div class="form-control">
+      <input type="text" name="description" id="text" placeholder="Description" required />
+    </div>
+    <div class="form-control">
+      <input type="number" name="amount" id="amount" placeholder="Amount (₹)" required />
+    </div>
+    <div class="form-buttons">
+      <button type="submit" class="btn primary">Add</button>
+      <a href="{% url 'calculate:delete_all_transactions' %}" class="btn danger">Delete All</a>
+    </div>
+  </form>
+</div>
+
+
+</div>
+
+{% endblock %}

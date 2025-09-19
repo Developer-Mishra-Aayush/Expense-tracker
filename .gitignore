@@ -1,0 +1,28 @@
+# Virtual environment
+expense-venv/
+
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Django
+*.log
+*.pot
+db.sqlite3
+media/
+
+# Environment variables
+.env
+venv/
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
