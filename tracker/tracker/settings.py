@@ -137,3 +137,18 @@ DEFAULT_FROM_EMAIL = 'ayush28014@gmail.com'
 
 # URL where unauthenticated users are redirected
 LOGIN_URL = '/login/'  # or the path to your custom login view
+
+
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# where collectstatic will put all static files
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# optional but recommended for development
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
