@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 import logging
 from django.views.decorators.cache import never_cache
 from django.db import IntegrityError
+from django.conf import settings
 
 # Create your views here.
 def register(request):
@@ -65,7 +66,7 @@ def login(request):
                 Thanks,
                 The Expense Tracker Team
                 """,
-            from_email='aayush.mishra@drcsystems.com',
+            from_email=settings.EMAIL_HOST_USER,
             recipient_list=[email],
             fail_silently=False
         )
